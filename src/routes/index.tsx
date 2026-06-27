@@ -3,6 +3,8 @@ import heroLadder from "@/assets/hero-ladder.png";
 import ellie from "@/assets/ellie.png";
 import cic from "@/assets/cic.png";
 
+const SITE_URL = "https://bayleafconsulting.lovable.app";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -10,7 +12,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Bayleaf Consulting champions organizations built for change. Strategic planning, program development, and executive coaching for nonprofit, philanthropic, and civic leaders.",
+          "Bayleaf Consulting champions organizations built for change. Strategic planning, program development, and executive coaching for nonprofit, philanthropic, and civic leaders in St. Louis and beyond.",
       },
       { property: "og:title", content: "Bayleaf Consulting" },
       {
@@ -19,12 +21,39 @@ export const Route = createFileRoute("/")({
           "Strategic support for civic and nonprofit leaders. Based in St. Louis, Missouri.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: "Bayleaf Consulting" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Bayleaf Consulting" },
       {
         name: "twitter:description",
         content:
           "Strategic support for civic and nonprofit leaders. Based in St. Louis, Missouri.",
+      },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Bayleaf Consulting",
+          alternateName: "Bayleaf Strategies",
+          url: SITE_URL,
+          email: "hello@bayleafstrategies.com",
+          description:
+            "Strategic planning, program development, and executive coaching for nonprofit, philanthropic, and civic leaders.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "St. Louis",
+            addressRegion: "MO",
+            addressCountry: "US",
+          },
+          areaServed: "Worldwide",
+          founder: { "@type": "Person", name: "Ellie Scott", jobTitle: "Founder & Chief Strategist" },
+          sameAs: ["https://www.linkedin.com/in/elliescott"],
+        }),
       },
     ],
   }),

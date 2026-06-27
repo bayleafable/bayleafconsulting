@@ -1,0 +1,19 @@
+# Bayleaf Consulting
+
+> Strategic support for civic and nonprofit leaders. Based in St. Louis, Missouri, Bayleaf Consulting helps nonprofit, philanthropic, and civic organizations develop vision, translate it into program strategy, and support leaders through change.
+
+Bayleaf Consulting champions organizations built for change. Services include strategic planning, program development, and executive coaching for mission-driven leaders across the Midwest and beyond.
+
+## Services
+
+- [Strategic Planning](/#services): Help leadership set direction and translate it into a working plan, grounded in reality and capacity.
+- [Program Development](/#services): Build programs that turn strategic priorities into operational work aligned with mission and community needs.
+- [Executive Coaching](/#services): Coach executives through change with direct, ongoing, individualized leadership support.
+
+## Pages
+
+- [Home](/): Overview of Bayleaf Consulting, services, leadership, and how to engage.
+- [About](/#about): Bayleaf's approach and the kinds of community-rooted projects we take on.
+- [Leadership](/#leadership): Ellie Scott, Founder & Chief Strategist.
+- [Work With Us](/#work): Our 3-step engagement process.
+- [Contact](/#contact): Reach out via email at hello@bayleafstrategies.com.
