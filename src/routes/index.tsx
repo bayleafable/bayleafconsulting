@@ -289,10 +289,6 @@ function Home() {
       <footer className="bg-brand-charcoal text-white/80">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm md:flex-row md:px-12">
           <p>© {new Date().getFullYear()} Bayleaf Consulting LLC. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white">Terms &amp; Support</a>
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-          </div>
         </div>
       </footer>
     </div>
