@@ -146,25 +146,35 @@ function Home() {
               title: "Strategic Planning",
               body:
                 "We help leadership set direction and translate it into a working plan. Every plan is grounded in reality and capacity rather than ambition and scarcity.",
+              to: "/strategic-planning" as const,
             },
             {
               title: "Program Development",
               body:
                 "We build programs that turn strategic priorities into operational work. Each program is designed to meet your mission and community needs.",
+              to: "/program-development" as const,
             },
             {
               title: "Executive Coaching",
               body:
                 "We coach executives through change with direct, ongoing support. Every session is curated to develop individual leadership skills.",
+              to: "/executive-coaching" as const,
             },
           ].map((s) => (
-            <div key={s.title} className="bg-brand-slate p-8 text-white">
+            <div key={s.title} className="flex flex-col bg-brand-slate p-8 text-white">
               <h3 className="font-serif text-xl uppercase tracking-wide">{s.title}</h3>
               <div className="mt-6 h-px w-12 bg-white/70" />
               <p className="mt-6 text-base leading-relaxed text-white/95">{s.body}</p>
+              <Link
+                to={s.to}
+                className="mt-8 inline-flex items-center self-start border border-white/70 px-5 py-2 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-brand-slate"
+              >
+                Learn More
+              </Link>
             </div>
           ))}
         </div>
+
       </section>
 
       {/* Leadership */}
