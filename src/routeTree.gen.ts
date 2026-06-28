@@ -9,12 +9,30 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StrategicPlanningRouteImport } from './routes/strategic-planning'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ProgramDevelopmentRouteImport } from './routes/program-development'
+import { Route as ExecutiveCoachingRouteImport } from './routes/executive-coaching'
 import { Route as IndexRouteImport } from './routes/index'
 
+const StrategicPlanningRoute = StrategicPlanningRouteImport.update({
+  id: '/strategic-planning',
+  path: '/strategic-planning',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramDevelopmentRoute = ProgramDevelopmentRouteImport.update({
+  id: '/program-development',
+  path: '/program-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExecutiveCoachingRoute = ExecutiveCoachingRouteImport.update({
+  id: '/executive-coaching',
+  path: '/executive-coaching',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,37 +43,86 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/executive-coaching': typeof ExecutiveCoachingRoute
+  '/program-development': typeof ProgramDevelopmentRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/strategic-planning': typeof StrategicPlanningRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/executive-coaching': typeof ExecutiveCoachingRoute
+  '/program-development': typeof ProgramDevelopmentRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/strategic-planning': typeof StrategicPlanningRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/executive-coaching': typeof ExecutiveCoachingRoute
+  '/program-development': typeof ProgramDevelopmentRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/strategic-planning': typeof StrategicPlanningRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/executive-coaching'
+    | '/program-development'
+    | '/sitemap.xml'
+    | '/strategic-planning'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/executive-coaching'
+    | '/program-development'
+    | '/sitemap.xml'
+    | '/strategic-planning'
+  id:
+    | '__root__'
+    | '/'
+    | '/executive-coaching'
+    | '/program-development'
+    | '/sitemap.xml'
+    | '/strategic-planning'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExecutiveCoachingRoute: typeof ExecutiveCoachingRoute
+  ProgramDevelopmentRoute: typeof ProgramDevelopmentRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StrategicPlanningRoute: typeof StrategicPlanningRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/strategic-planning': {
+      id: '/strategic-planning'
+      path: '/strategic-planning'
+      fullPath: '/strategic-planning'
+      preLoaderRoute: typeof StrategicPlanningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/program-development': {
+      id: '/program-development'
+      path: '/program-development'
+      fullPath: '/program-development'
+      preLoaderRoute: typeof ProgramDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/executive-coaching': {
+      id: '/executive-coaching'
+      path: '/executive-coaching'
+      fullPath: '/executive-coaching'
+      preLoaderRoute: typeof ExecutiveCoachingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,7 +137,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExecutiveCoachingRoute: ExecutiveCoachingRoute,
+  ProgramDevelopmentRoute: ProgramDevelopmentRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StrategicPlanningRoute: StrategicPlanningRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,7 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroLadder from "@/assets/hero-ladder.png";
 import ellie from "@/assets/ellie.png";
 import cic from "@/assets/cic.png";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 const SITE_URL = "https://bayleafconsulting.lovable.app";
 
@@ -62,14 +64,6 @@ export const Route = createFileRoute("/")({
 
 const BOOK_URL = "https://calendly.com/ellie-bayleafstrategies/discovery";
 
-function Logo() {
-  return (
-    <a href="#top" className="font-serif text-[1.75rem] leading-none tracking-tight text-brand-green">
-      Bayleaf<span className="text-brand-gold">.</span>
-    </a>
-  );
-}
-
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <div className="mb-12">
@@ -84,19 +78,8 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 function Home() {
   return (
     <div id="top" className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <header className="mx-auto max-w-7xl px-6 pt-10 md:px-12">
-        <div className="flex items-center justify-between pb-6">
-          <Logo />
-          <nav className="hidden gap-8 text-sm uppercase tracking-widest text-foreground/80 md:flex">
-            <a href="#about" className="hover:text-brand-green">About</a>
-            <a href="#services" className="hover:text-brand-green">Services</a>
-            <a href="#leadership" className="hover:text-brand-green">Leadership</a>
-            <a href="#contact" className="hover:text-brand-green">Contact</a>
-          </nav>
-        </div>
-        <div className="h-px w-full bg-foreground" />
-      </header>
+      <SiteHeader />
+
 
       {/* Hero */}
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-12 md:py-24">
@@ -163,25 +146,35 @@ function Home() {
               title: "Strategic Planning",
               body:
                 "We help leadership set direction and translate it into a working plan. Every plan is grounded in reality and capacity rather than ambition and scarcity.",
+              to: "/strategic-planning" as const,
             },
             {
               title: "Program Development",
               body:
                 "We build programs that turn strategic priorities into operational work. Each program is designed to meet your mission and community needs.",
+              to: "/program-development" as const,
             },
             {
               title: "Executive Coaching",
               body:
                 "We coach executives through change with direct, ongoing support. Every session is curated to develop individual leadership skills.",
+              to: "/executive-coaching" as const,
             },
           ].map((s) => (
-            <div key={s.title} className="bg-brand-slate p-8 text-white">
+            <div key={s.title} className="flex flex-col bg-brand-slate p-8 text-white">
               <h3 className="font-serif text-xl uppercase tracking-wide">{s.title}</h3>
               <div className="mt-6 h-px w-12 bg-white/70" />
               <p className="mt-6 text-base leading-relaxed text-white/95">{s.body}</p>
+              <Link
+                to={s.to}
+                className="mt-8 inline-flex items-center self-start border border-white/70 px-5 py-2 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-brand-slate"
+              >
+                Learn More
+              </Link>
             </div>
           ))}
         </div>
+
       </section>
 
       {/* Leadership */}
@@ -285,12 +278,8 @@ function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-brand-charcoal text-white/80">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm md:flex-row md:px-12">
-          <p>© {new Date().getFullYear()} Bayleaf Consulting LLC. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
+
     </div>
   );
 }
