@@ -64,14 +64,6 @@ export const Route = createFileRoute("/")({
 
 const BOOK_URL = "https://calendly.com/ellie-bayleafstrategies/discovery";
 
-function Logo() {
-  return (
-    <a href="#top" className="font-serif text-[1.75rem] leading-none tracking-tight text-brand-green">
-      Bayleaf<span className="text-brand-gold">.</span>
-    </a>
-  );
-}
-
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <div className="mb-12">
@@ -86,19 +78,8 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 function Home() {
   return (
     <div id="top" className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <header className="mx-auto max-w-7xl px-6 pt-10 md:px-12">
-        <div className="flex items-center justify-between pb-6">
-          <Logo />
-          <nav className="hidden gap-8 text-sm uppercase tracking-widest text-foreground/80 md:flex">
-            <a href="#about" className="hover:text-brand-green">About</a>
-            <a href="#services" className="hover:text-brand-green">Services</a>
-            <a href="#leadership" className="hover:text-brand-green">Leadership</a>
-            <a href="#contact" className="hover:text-brand-green">Contact</a>
-          </nav>
-        </div>
-        <div className="h-px w-full bg-foreground" />
-      </header>
+      <SiteHeader />
+
 
       {/* Hero */}
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-12 md:py-24">
