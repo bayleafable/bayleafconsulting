@@ -1,7 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroLadder from "@/assets/hero-ladder.png";
 import ellie from "@/assets/ellie.png";
 import cic from "@/assets/cic.png";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 
 const SITE_URL = "https://bayleafconsulting.lovable.app";
 
